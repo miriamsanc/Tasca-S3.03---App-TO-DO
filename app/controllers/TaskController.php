@@ -26,4 +26,11 @@ class TaskController extends Controller {
         exit;
     }
   }
+
+  public function showAction() {
+      $id = $this->_getParam('id');
+      $filtered = $this->taskModel->filterTasks('id', $id);
+      $this->view->task = array_shift($filtered);
+  }
+  
 }
