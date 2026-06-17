@@ -54,4 +54,19 @@ class TaskController extends Controller {
       }
    
   }
+
+  public function filterAction() {
+     $field = $this->_getParam('field');
+     $value = $this->_getParam('value');
+
+  
+     $this->view->tasks = $this->taskModel->filterTasks($field, $value);
+  }
+
+   public function deleteAction() {
+      $id = (int)$this->_getParam('id');
+      $this->taskModel->deleteTask($id);
+      header("Location: /phpInitialDemo/web/task/index");
+      exit;
+  }
 }
