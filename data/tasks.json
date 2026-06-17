@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "title": "Derrotar a los Slimes del Bosque",
+        "description": "El granjero local dice que los slimes se est\u00e1n comiendo sus cultivos de pociones. Elimina al menos 10 slimes azules.",
+        "status": "acabada",
+        "start_time": "2026-06-10 08:30:00",
+        "end_time": "2026-06-10 14:15:00",
+        "user": "Sir Lancelot"
+    },
+    {
+        "id": "2",
+        "title": "Encontrar el Amuleto Perdido",
+        "description": "La hechicera del pueblo perdi\u00f3 su amuleto de rub\u00ed en las Cavernas del Eco. Cuidado con los murci\u00e9lagos gigantes.",
+        "status": "en ejecuci\u00f3n",
+        "start_time": "2026-06-11 09:00:00",
+        "end_time": "",
+        "user": "Aria la P\u00edcara"
+    },
+    {
+        "id": "3",
+        "title": "Escolta de la Caravana Mercante",
+        "description": "Proteger la caravana de suministros desde la Capital hasta el Puesto Fronterizo. Se esperan posibles emboscadas de goblins en el desfiladero.",
+        "status": "pendiente",
+        "start_time": "",
+        "end_time": "",
+        "user": "Desconocido"
+    }
+]
