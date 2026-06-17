@@ -114,5 +114,12 @@ class TaskModel {
        file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT));
    }
      
+   public function deleteTask(int $id): void {
+     $tasks = $this->getAllTasks();
+     $newTasks = array_filter($tasks, function($task) use ($id) {
+            return $task["id"] != $id;
+     });
+     file_put_contents($this->filePath, json_encode(array_values($newTasks), JSON_PRETTY_PRINT));
+   }
 
 }
