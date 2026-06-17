@@ -85,4 +85,34 @@ class TaskModel {
      });
      return array_values($newTasks);
    }
+
+   public function editTask(array $updatedTask): void {
+    $tasks = $this->getAllTasks();
+       foreach ($tasks as &$task) {
+           if ($task['id'] == $updatedTask['id']) {
+               $task['title'] = $updatedTask['title'] ?? $task['title'];
+               $task['description'] = $updatedTask['description'] ?? $task['description'];
+               $task['user'] = $updatedTask['user'] ?? $task['user'];
+               
+               $status = $updatedTask['status'] ?? $task['status'];
+
+               if ($status === 'en ejecucion' && $task['status'] !== 'en ejecucion') {
+                   $task['start_time'] = date("Y-m-d H:i:s");
+               }
+
+               if ($status === 'acabada' && $task['status'] !== 'acabada') {
+
+                   if (empty($task['start_time'])) {
+                       $task['start_time'] = date("Y-m-d H:i:s");
+                   }
+                   $task['end_time'] = date("Y-m-d H:i:s");
+               }
+               $task['status'] = $status;
+               break;
+           }
+       }
+       file_put_contents($this->filePath, json_encode($tasks, JSON_PRETTY_PRINT));
+   }
+     
+
 }
