@@ -10,4 +10,20 @@ class TaskController extends Controller {
    public function indexAction() { 
      $this->view->tasks = $this->taskModel->getAllTasks();
   }
+
+  public function createAction() {
+      if ($this->getRequest()->isPost()) {
+          $task = [
+             "title" => $this->getRequest()->getParam('title'),
+             "description" => $this->getRequest()->getParam('description'),
+             "user" => $this->getRequest()->getParam('user'),
+             "status" => $this->getRequest()->getParam('status'),
+             "start_time" => $this->getRequest()->getParam('start_time') ?: "",
+             "end_time" => $this->getRequest()->getParam('end_time') ?: ""
+          ];
+        $this->taskModel->addTask($task);
+        header("Location: /phpInitialDemo/web/task/index");
+        exit;
+    }
+  }
 }
