@@ -74,7 +74,7 @@ Since the application's entry point is inside the web/ folder, make sure your lo
 Open the XAMPP Control Panel, start the Apache module, and visit:
 
 ```
-http://localhost/rpg-todo-list/web/
+http://localhost/Tasca-S3.03---App-TO-DO/web/task/index
 ```
 
 
