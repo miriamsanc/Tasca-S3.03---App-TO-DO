@@ -1,83 +1,111 @@
-# PHP initial Project
-Main structure of php project. Folders / files:
-- **app**
-  - **controllers**
-  - **models**
-  - **views**
-- **config**
-- **lib**
-  - **base**
-- **web**
+# ⚔️ RPG To-Do List 🛡️
 
-### Usage
+Organize your daily tasks as if they were epic quests in a classic RPG! This is a task management web application (*To-Do List*) built with PHP following the MVC (Model-View-Controller) architecture, featuring a retro gaming aesthetic.
 
-The web/index.php is the heart of the system.
-This means that your web applications root folder is the “web” folder.
+---
 
-All requests go through this file and it decides how the routing of the app
-should be.
-You can add additional hooks in this file to add certain routes.
+## 🚀 Features
 
-### Project Structure
+* **Retro RPG Aesthetics:** Pixel-art style interface and visual components reminiscent of classic video game menus.
+* **Quest Management (CRUD):** Create, view, edit, and delete your pending "quests" (tasks).
+* **Responsive Design:** Fully adapted for both mobile and desktop screens via Tailwind CSS.
 
-The root of the project holds a few directories:
-**/app** This is the folder where your magic will happen. Use the views, controllers and models folder for your app code.
-**/config** this folder holds a few configuration files. Currently only the connection to the database.
-**/lib** This is where you should put external libraries and other external files.
-**/lib/base** The library files. Don’t change these :)
-**/web** This folder holds files that are to be “downloaded” from your app. Stylesheets, javascripts and images used. (and more of course)
+---
 
-The system uses a basic MVC structure, with your web app’s files located in the
-“app” folder.
+## 🛠️ Technologies
 
-#### app/controllers
-Your application’s controllers should be defined here.
+* **Backend:** PHP 8 
+* **Frontend:** HTML5, Tailwind CSS
+* **Data Storage:** JSON (File-based data persistence)
+* **Recommended Local Server:** XAMPP 
 
-All controller names should end with “Controller”. E.g. TestController.
-All controllers should inherit the library’s “Controller” class.
-However, you should generally just make an ApplicationController, which extends
-the Controller. Then you can defined beforeFilters etc in that, which will get run
-at every request.
+---
 
-#### app/models
-Models handles database interaction etc.
+## 📁 Project Structure
 
-All models should inherit from the Model class, which provides basic functionality.
-The Model class handles basic functionality such as:
+Main structure:
 
-Setting up a database connection (using PDO)
-fetchOne(ID)
-save(array) → both update/create
-delete(ID)
-app/views
-Your view files.
-The structure is made so that having a controller named TestController, it looks
-in the app/views/test/ folder for it’s view files.
+```text
+├── app/
+│   ├── controllers/
+│   │     └── TaskController.php          
+│   ├── models/
+│   │     └── TaskModel.php           
+│   └── views/            
+│       ├── layouts/
+│       │     └── layout.phtml       
+│       └── scripts/
+│              └── task/
+│                  ├── create.phtml
+│                  ├── edit.phtml
+│                  ├── index.phtml
+│                  └── show.phtml    
+├── config/
+│   └── routes.php
+├── data/
+│   └── tasks.json             
+├── lib/
+│   └── base/
+│       ├── Controller.php
+│       ├── Router.php
+│       └── View.php                  
+├── web/
+│   ├── images/
+│   └── index.php                
+│
+└── README.md
+```
 
-All view files end with .phtml
-Having an action in the TestController called index, the view file
-app/views/test/index.phtml will be rendered as default.
+---
 
-#### config/routes.php
-Your routes around the system needs to be defined here.
-A route consists of the URL you want to call + the controller#action you want it
-to hit.
+## Usage
+## 🚀 Installation
 
-An example is:
-$routes = array(
-‘/test’ => ‘test#index’ // this will hit the TestController’s indexAction method.
-);
+1. Clone the repository:
 
-#### Error handling
-A general error handling has been added.
+```bash
+git clone https://github.com/miriamsanc/Tasca-S3.03---App-TO-DO.git
+```
 
-If a route doesn’t exist, then the error controller is hit.
-If some other exception was thrown, the error controller is hit.
-As default, the error controller just shows the exception occured, so remember
-to style the error controller’s view file (app/views/error/error.phtml)
+2. Configure the Web Server (XAMPP)
+Since the application's entry point is inside the web/ folder, make sure your local server points to it, or access it directly through the browser URL.
+
+3. Run it in your Browser
+Open the XAMPP Control Panel, start the Apache module, and visit:
+
+```
+http://localhost/rpg-todo-list/web/
+```
 
 
-### Utilities
-- [PHP Developers Guide](https://www.php.net/manual/en/index.php).
-- .gitignore file configuration. [See Official Docs](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files).
-- Git branches. [See Official Docs](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell).
+---
+
+## 📸 Preview
+
+### Index
+<img width="1563" height="872" alt="Home" src="https://github.com/user-attachments/assets/007be806-04e7-494d-be37-f03cb5596683" />
+
+<img width="1840" height="852" alt="Home2" src="https://github.com/user-attachments/assets/97b5c511-0790-40b1-bd26-851527082f94" />
+
+
+### Create Task
+
+<img width="1484" height="950" alt="create" src="https://github.com/user-attachments/assets/72c22c31-64bc-46d6-afaa-a0346887299c" />
+
+
+### Edit Task
+
+<img width="1372" height="945" alt="edit" src="https://github.com/user-attachments/assets/9650d643-ea9b-4eeb-a938-0427c626e3ec" />
+
+
+### Show Task
+
+<img width="1415" height="746" alt="show" src="https://github.com/user-attachments/assets/444275a3-4868-4b98-a691-baa9e31d666d" />
+
+
+
+
+
+
+
+
