@@ -2,7 +2,7 @@
 <div class="max-w-2xl mx-auto p-4 font-retro text-gray-900 mt-12">
     <div class="bg-purple-200 border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative">
         
-        <a href="/phpInitialDemo/web/task/index" class="absolute -top-6 -left-6 bg-yellow-300 border-4 border-black px-4 py-2 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-400 active:translate-y-1 active:shadow-none">
+        <a href="/Tasca-S3.03---App-TO-DO/web/task/index" class="absolute -top-6 -left-6 bg-yellow-300 border-4 border-black px-4 py-2 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-yellow-400 active:translate-y-1 active:shadow-none">
             &lt; Volver al Tablón
         </a>
 
@@ -55,11 +55,11 @@
         </div>
 
         <div class="flex gap-4">
-            <a href="/phpInitialDemo/web/task/edit?id=<?php echo $this->task['id']; ?>" class="flex-1 text-center bg-yellow-300 hover:bg-yellow-400 border-4 border-black py-3 font-bold uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none">
+            <a href="/Tasca-S3.03---App-TO-DO/web/task/edit?id=<?php echo $this->task['id']; ?>" class="flex-1 text-center bg-yellow-300 hover:bg-yellow-400 border-4 border-black py-3 font-bold uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none">
                 <span class="icon-item icon-scroll scale-150"></span>
                 Editar
             </a>
-            <form action="/phpInitialDemo/web/task/delete" method="POST" class="flex-1">
+            <form action="/Tasca-S3.03---App-TO-DO/web/task/delete" method="POST" class="flex-1">
                 <input type="hidden" name="id" value="<?php echo $this->task['id']; ?>">
                 <button type="submit" class="w-full text-center bg-red-300 hover:bg-red-400 border-4 border-black py-3 font-bold uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none" onclick="return confirm('¿Abandonar esta misión permanentemente?');">
                     <span class="icon-rpg icon-skull scale-125"></span>
