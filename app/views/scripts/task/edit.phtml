@@ -38,11 +38,11 @@
             <div class="grid grid-cols-2 gap-6">
                 <div>
                     <label class="block text-xl font-bold mb-2">Fecha Inicio</label>
-                    <input type="date" name="start_date" value="<?php echo htmlspecialchars($this->task['start_date'] ?? ''); ?>" required class="w-full bg-white border-4 border-black p-3 outline-none cursor-pointer focus:bg-teal-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <input type="datetime-local" name="start_time" value="<?php echo htmlspecialchars($this->task['start_time'] ?? ''); ?>" class="w-full bg-white border-4 border-black p-3 outline-none cursor-pointer focus:bg-teal-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 </div>
                 <div>
                     <label class="block text-xl font-bold mb-2">Fecha Fin</label>
-                    <input type="date" name="end_date" value="<?php echo htmlspecialchars($this->task['end_date'] ?? ''); ?>" required class="w-full bg-white border-4 border-black p-3 outline-none cursor-pointer focus:bg-teal-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <input type="datetime-local" name="end_time" value="<?php echo htmlspecialchars($this->task['end_time'] ?? ''); ?>" class="w-full bg-white border-4 border-black p-3 outline-none cursor-pointer focus:bg-teal-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 </div>
             </div>
 

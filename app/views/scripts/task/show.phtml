@@ -19,12 +19,38 @@
             <div class="grid grid-cols-2 gap-4 text-sm font-bold pt-4">
                 <p> <span class="icon-item icon-helmet scale-150 mx-2"></span>
                 Aventurero: <span class="font-normal text-purple-700"><?php echo htmlspecialchars($this->task['user'] ?? 'Desconocido'); ?></span></p>
+
+                <?php 
+            
+                $status = strtolower($this->task['status'] ?? 'pendiente');
+                $statusBg = match ($status) {
+                    'pendiente' => 'bg-amber-200',
+                    'en ejecucion', 'en ejecución' => 'bg-blue-200',
+                    'acabada' => 'bg-green-200',
+                    default => 'bg-gray-200',
+                };
+                ?>
+
                 <p> <span class="icon-item icon-potion scale-150 mx-2"></span>
-                Estado: <span class="font-normal uppercase bg-pink-200 px-1 border border-black"><?php echo htmlspecialchars($this->task['status']); ?></span></p>
+                Estado: <span class="font-normal uppercase <?php echo $statusBg; ?> px-1 border border-black"><?php echo htmlspecialchars($this->task['status']); ?></span></p>
                 <p> <span class="icon-rpg icon-clock scale-125"></span>
-                Inicio: <span class="font-normal"><?php echo htmlspecialchars($this->task['start_time'] ?? '--'); ?></span></p>
+                Inicio: <span class="font-normal">
+                    <?php 
+                    echo !empty($this->task['start_time']) 
+                        ? date('d/m/Y H:i', strtotime($this->task['start_time'])) 
+                        : '--'; 
+                    ?>
+                </span></p>
+
+
                 <p> <span class="icon-rpg icon-clock scale-125"></span>
-                Fin: <span class="font-normal"><?php echo htmlspecialchars($this->task['end_time'] ?? '--'); ?></span></p>
+                Fin: <span class="font-normal">
+                    <?php 
+                    echo !empty($this->task['end_time']) 
+                        ? date('d/m/Y H:i', strtotime($this->task['end_time'])) 
+                        : '--'; 
+                    ?>
+                </span></p>
             </div>
         </div>
 
