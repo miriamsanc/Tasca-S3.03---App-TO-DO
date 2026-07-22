@@ -1,0 +1,73 @@
+<div class="w-full p-4 font-retro text-gray-900 mt-8 mb-12">
+    <div class="text-center mb-12">
+    <h1 class="title-8bits text-xl md:text-3xl font-bold text-pink-400 tracking-wide uppercase mb-4 flex items-center justify-center gap-4">
+        <span class="icon-rpg icon-shield-guild scale-125"></span>
+        Gremio de Aventureros
+        <span class="icon-rpg icon-trophy-gold scale-125"></span>
+    </h1>
+    <p class="text-indigo-500 font-bold text-lg">Tablón de Misiones</p>
+    </div>
+
+    <div class="mb-8 flex justify-between items-center bg-yellow-100 p-4 border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+        <span class="font-bold text-xl">Misiones Actuales: <?php echo count($this->tasks ?? []); ?></span>
+        <a href="/Tasca-S3.03---App-TO-DO/web/task/create" class="flex items-center gap-2 bg-green-300 hover:bg-green-400 border-4 border-black px-6 py-2 font-bold text-lg shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-[0px_0px_0px_0px_rgba(0,0,0,1)] transition-all">
+            <span class="icon-rpg icon-plus scale-110"></span>
+            Forjar Nueva Misión
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <?php if (count($this->tasks ?? []) > 0): ?>
+            <?php foreach($this->tasks as $task): ?>
+                <div class="bg-indigo-100 border-4 border-black p-5 flex flex-col relative shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-transform duration-200">
+                    
+                    <div class="flex justify-between items-start mb-3">
+                        <h2 class="text-2xl font-bold capitalize"><?php echo htmlspecialchars($task['title']); ?></h2>
+    
+                        <?php 
+                            $status = strtolower($task['status'] ?? 'pendiente');
+                            $statusBg = match ($status) {
+                                'pendiente' => 'bg-amber-200',
+                                'en ejecucion', 'en ejecución' => 'bg-blue-200',
+                                'acabada' => 'bg-green-200',
+                                default => 'bg-gray-200',
+                            };
+                        ?>
+    
+                        <span class="<?php echo $statusBg; ?> border-2 border-black px-2 py-1 text-xs font-bold uppercase shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                            <?php echo htmlspecialchars($task['status'] ?? 'Pendiente'); ?>
+                        </span>
+                    </div>
+                    
+                    <p class="text-sm mb-4 flex-grow bg-white border-2 border-black p-2 overflow-hidden text-ellipsis">
+                        <?php echo htmlspecialchars($task['description']); ?>
+                    </p>
+                    
+                    <div class="text-xs font-bold mb-4">
+                        <p> Héroe: <span class="text-purple-600"><?php echo htmlspecialchars($task['user'] ?? 'Desconocido'); ?></span></p>
+                    </div>
+
+                    <div class="flex gap-2 mt-auto">
+                        <a href="/Tasca-S3.03---App-TO-DO/web/task/show?id=<?php echo $task['id']; ?>" class="flex-1 flex items-center justify-center gap-1 bg-blue-300 hover:bg-blue-400 border-2 border-black py-1 font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none">
+                           <span class="icon-rpg icon-map scale-75"></span> Ver
+                        </a>
+                        <a href="/Tasca-S3.03---App-TO-DO/web/task/edit?id=<?php echo $task['id']; ?>" class="flex-1 flex items-center justify-center gap-1 bg-yellow-300 hover:bg-yellow-400 border-2 border-black py-1 font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none">
+                            <span class="icon-rpg icon-gear scale-75"></span> Editar
+                        </a>
+                        <form action="/Tasca-S3.03---App-TO-DO/web/task/delete" method="POST" class="flex-1">
+                            <input type="hidden" name="id" value="<?php echo $task['id']; ?>">
+                            <button type="submit" class="w-full flex items-center justify-center gap-1 bg-red-300 hover:bg-red-400 border-2 border-black py-1 font-bold shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] active:translate-y-1 active:shadow-none" onclick="return confirm('¿Abandonar esta misión permanentemente?');">
+                                <span class="icon-rpg icon-delete scale-75"></span> Borrar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="col-span-full text-center bg-gray-200 border-4 border-black p-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                <p class="text-2xl font-bold mb-4">No hay misiones activas</p>
+                <p class="text-lg">¡El reino está en paz... por ahora!</p>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>

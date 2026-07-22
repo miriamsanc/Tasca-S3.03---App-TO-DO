@@ -1,11 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
+	<style>
+        body, input, textarea, select, button, a {
+            font-family: 'Pixelify Sans', monospace !important;
+        }
+        .title-8bits {
+            font-family: 'Press Start 2P', cursive !important;
+            line-height: 1.6;
+        }
+
+        .pixel-map {
+            background-image: url('/Tasca-S3.03---App-TO-DO/web/images/map.png'); 
+            background-size: cover; 
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .wooden-board {
+            background-image: url('/Tasca-S3.03---App-TO-DO/web/images/WoodenBoard.jpg'); 
+        }
+
+        .icon-rpg {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background-image: url('/Tasca-S3.03---App-TO-DO/web/images/Icons.png'); 
+            background-size: 320px 320px;
+            image-rendering: pixelated;
+            vertical-align: middle;
+        }
+
+        .icon-item {
+            background-image: url('/Tasca-S3.03---App-TO-DO/web/images/Icons_24x24.png'); 
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-repeat: no-repeat;
+            image-rendering: pixelated;
+        }
+
+        .icon-helmet { background-position: -24px -312px; }  
+        .icon-potion { background-position: 0px -72px; }     
+        .icon-scroll { background-position: -168px 0px; }
+
+        .icon-clock  { background-position: -256px -64px; } 
+        .icon-skull  { background-position: -256px -32px; }        
+        .icon-save   { background-position: 0px 0px; }            
+        .icon-gear   { background-position: -160px 0px; }         
+        .icon-map    { background-position: -160px -128px; }      
+        .icon-plus   { background-position: -32px -256px; }       
+        .icon-delete { background-position: 0px -288px; }         
+        .icon-shield-guild { background-position: -96px -192px; } 
+        .icon-trophy-gold { background-position: -32px -64px; }   
+        .icon-tick { background-position: -32px -288px; }
+
+
+    </style>
+
+	<title>TO-DO App RPG Theme</title>
 </head>
-<body>
-	<?php echo $this->content(); ?>
+<body class="font-retro pixel-map min-h-screen antialiased">
+    
+    <div class="py-10 px-4 md:px-8 lg:px-12">
+
+        <div class="max-w-7xl mx-auto wooden-board border-8 border-black p-4 md:p-8 rounded-2xl relative overflow-hidden">
+            
+            <div class="relative z-10">
+                <?php echo $this->content(); ?>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
